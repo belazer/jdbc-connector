@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/gui/gui.fxml"));
         primaryStage.setTitle("JDBC Connector");
-        primaryStage.setScene(new Scene(root, 640, 480));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

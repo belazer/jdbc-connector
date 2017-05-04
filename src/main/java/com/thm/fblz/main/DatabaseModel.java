@@ -27,9 +27,13 @@ public class DatabaseModel {
         }
     }
 
-    public ResultSet executeQuery(String query) throws SQLException {
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
-        return rs;
+    public Result executeQuery(String query) throws SQLException {
+        Statement statement = con.createStatement();
+        boolean wasQuery = statement.execute(query);
+        if (wasQuery) {
+            return new Result(statement.getResultSet());
+        } else {
+            return new Result(statement.getUpdateCount());
+        }
     }
 }
